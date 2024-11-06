@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Login</h2>
+
+    <form action="" onsubmit="login(event)">
+        <input type="text" id="name" required>
+        <input type="password" name="" id="password" required>
+        <button >submit</button>
+    </form>
+
+    <script>
+        function login(event){
+            event.preventDefault();
+
+            let name=document.getElementById("name")
+            let password=document.getElementById("password")
+
+            let userName=localStorage.getItem("name")
+            let userPassword=localStorage.getItem("password")
+          
+
+            if(name.value===userName && password.value===userPassword){
+              if(screen < 500)  {
+                  alert("please convert to Laptop Screen")
+                }else{
+                  alert("logged in succesfully.")
+                  localStorage.setItem("isLoggedIn","true")
+                  window.location.href="home.html"
+              }
+              
+            }
+            else{
+                alert("Wrong credentials. please try again!")
+                name.value=""
+                password.value=""   
+            }
+          
+            
+
+        }        
+    </script>
+
+</body>
+    
+</html>
